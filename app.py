@@ -12,4 +12,4 @@ def post_data():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='1.14.155.39', port=5000)
