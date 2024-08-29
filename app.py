@@ -29,5 +29,10 @@ def submit():
     data = request.form['data']
     return f'Received data: {data}'
 
+#渲染boostrap
+@app.route('/Bootstrap/index')
+def index():
+    return render_template('/Bootstrap/index.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000,debug=True)
