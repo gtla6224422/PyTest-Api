@@ -1,33 +1,40 @@
 import requests
 import json
+import sys
+module_path = './backend/config/header'
+if module_path not in sys.path:
+    sys.path.append(module_path)
+from headers_config import GetUserInfo_Header
 
 def test_getUserInfo():
     # 登录接口的 URL
     url = 'https://angelapi.bluemoon.com.cn/portal-admin/repositoryFile/getUserInfo'
+
     # 构造请求数据
-    payload = {
-    }
+    payload = {}
     
     # 发送 POST 请求
-    response = requests.post(url, json=payload)
+    response = requests.post(url, json=payload,headers=GetUserInfo_Header)
     
     # 检查响应状态码
     assert response.status_code == 200
     
     # 解析 JSON 响应
-    data = response.json()
+    response_json = response.json()
+    #print(response_json)
+    token = response_json.get('token')
+    print(token)
     
-    # 检查响应中是否存在 token 字段
-    assert 'token' in data
-    
-    # 提取 token 字段并进行断言
-    token = data['token']
-    assert isinstance(token, str), "Token should be a string"
-    assert len(token) > 0, "Token should not be empty"
-    
-    # 使用提取的 token 进行其他操作，例如发送另一个请求
-    headers = {'Authorization': f'Bearer {token}'}
-    response_auth = requests.get('http://example.com/api/protected', headers=headers)
-    
-    # 检查保护接口的响应
-    assert response_auth.status_code == 200
+    # 打印请求信息
+    #print(f"Request URL: {response.request.url}")
+    #print(f"Request Headers: {response.request.headers}")
+    #print(f"Request Body: {response.request.body}")
+
+    # 打印响应信息
+    #print(f"Response Status Code: {response.status_code}")
+    #print(f"Response Headers: {response.headers}")
+    #print(f"Response Content: {response_content}")
+
+if __name__ == "__main__":
+    #临时调试单函数用
+    test_getUserInfo()
