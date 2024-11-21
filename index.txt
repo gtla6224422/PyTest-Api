@@ -1,0 +1,10 @@
+project/
+├── tests/
+│   ├── conftest.py
+│   ├── test_userinfo.py
+│   └── fixtures/
+│       └── api_client.py
+├── config/
+│   ├── test_config.yaml
+│   └── test_data.yaml
+└── requirements.txt

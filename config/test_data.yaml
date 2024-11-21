@@ -1,0 +1,22 @@
+test_cases:
+  - name: "Valid role"
+    input:
+      role: 1
+    expected:
+      status_code: 200
+      role: 1
+      data_length: 0
+  - name: "Invalid role"
+    input:
+      role: 999
+    expected:
+      status_code: 404
+      code: 404
+      error: "No users found with the specified role"
+  - name: "Missing role"
+    input:
+      role: null
+    expected:
+      status_code: 400
+      code: 400
+      error: "Missing required fields"
