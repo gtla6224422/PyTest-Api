@@ -1,4 +1,4 @@
-test_cases:
+userinfo_case:
   - name: "Valid role"
     input:
       role: 1

@@ -1,1 +1,11 @@
+# tests/test_config.yaml
+
 base_url: "http://1.14.155.39:5001"
+
+database:
+  host: '1.14.155.39'
+  user: 'wzd'
+  password: 'Wzd123!$&'
+  db: 'web_demo'
+  charset: 'utf8mb4'
+  cursorclass: 'pymysql.cursors.DictCursor'
